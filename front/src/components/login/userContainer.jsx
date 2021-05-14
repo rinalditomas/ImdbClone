@@ -4,54 +4,58 @@ import Login from './login'
 import Register from './register'
 import {registerRequest,loginRequest} from '../../state/user'
 import { useDispatch} from "react-redux";
+import { useHistory } from "react-router-dom";
 
 
-function UserContainer() {
-  const [isLogin,setIsLogin] = useState(false)
+
+function UserContainer({match}) {
   const [input, setInput] = useState([]);
   const dispatch = useDispatch();
+  const history = useHistory();
+
 
   const handleChange = (e) => {
     const key = e.target.name;
     const value = e.target.value;
     setInput({ ...input, [key]: value });
   };
- 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(isLogin)
-    if(isLogin === false){
-      
+    if(match.login === "register"){
     try {
       const newUser = await dispatch(registerRequest(input));
-      setIsLogin(true)
       setInput([])
+      alert("Usuario creado correctamente")
+      history.push("/user/login");
+    
+
 
     } catch (error) {
       console.log(error)
-
+      alert("hubo un problema")
     }
-  }else{
-    console.log(input)
+  }
+  if(match.login === "login"){
     try {
       const loggedUser = await dispatch(loginRequest(input))
-      console.log(loggedUser)
+      alert(`Bienvenido ${loggedUser.payload.username}`)
+      history.push("/");
       
     } catch (error) {
       console.log(error)
     }
   }
-  
+   
   }
+  
 
   return (
     <div className="App">
       <div className="login">
         <div className="container">
-          {isLogin && <Login handleChange={handleChange} input={input} handleSubmit={handleSubmit}/>}
-          {!isLogin && <Register handleChange={handleChange} input={input} handleSubmit={handleSubmit} />}
+          {match.login === "login"? <Login handleChange={handleChange} input={input} handleSubmit={handleSubmit}/> : match.login ==="register" ? <Register handleChange={handleChange} input={input} handleSubmit={handleSubmit} /> : null}
+          
         </div>
-        <button onClick={()=>{isLogin? setIsLogin(false):setIsLogin(true)}}>{isLogin?"registrarse":"login"}</button>
       </div> 
     </div>
   );

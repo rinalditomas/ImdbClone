@@ -2,7 +2,10 @@
 //Custom Fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
+
+
 .App {
+  position: relative;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -50,8 +53,9 @@
   align-items: center;
   margin-top: 5px;
   position: relative;
-  z-index: 99;
+  z-index: 0;
   .container {
+    margin-top: 7vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,42 +63,13 @@
     box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.2);
     border-radius: 4px;
     position: relative;
-    z-index: 99;
+    z-index: 0;
     width: 100%;
     height: 100%;
-    z-index: 99;
     padding: 17px 10px;
     //transition: transform 200ms ease-in-out;
   }
-  .right-side {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 90%;
-    background-color: #3498db;
-    width: 100%;
-    position: absolute;
-    right: -34%;
-    border-radius: 6px;
-    z-index: 1;
-    transition: all 400ms ease-in-out;
-    cursor: pointer;
-    box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.281);
-
-    &.right {
-      right: -40%;
-      align-items: flex-end;
-      &:hover {
-        right: -45%;
-      }
-    }
-    &.left {
-      right: 40%;
-      align-items: flex-start;
-      &:hover {
-        right: 45%;
-      }
-    }
+  
 
     .text {
       font-size: 21px;
@@ -104,7 +79,7 @@
       margin-left: 3em;
     }
   }
-}
+
 
 //Button
 .btn {
@@ -123,3 +98,464 @@
     outline: none;
   }
 }
+
+nav{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 10vh;
+  width: 100%;
+  background: #2386c8;
+}
+.nav-links{
+  display: flex;
+  list-style: none;
+  width: 50%;
+  height: 10vh;
+  margin-top: 0%;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: auto;
+}
+.nav-links li a{
+  color: white;
+  text-decoration: none ;
+}
+.row{
+ display:flex;
+ flex-wrap: wrap;
+ justify-content: center;
+}
+.row-favorites{
+  display: inline-block;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.movie{
+width: 300px;
+margin: 1rem;
+border-radius: 3px;
+box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+align-items: center;
+justify-content: center;
+display:flex;
+position:relative;
+transition: transform 0.3s;
+}
+
+.movie:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.search-b{
+  width: 50%; 
+  justify-content:center;
+}
+.form-control{
+  display: flex;
+  margin-left: 3rem;
+  margin-top: 1.1rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid rgb(19, 15, 15) ;
+  border-radius: 50px;
+  font-size: 1rem;
+  
+}
+.form-control::placeholder{
+  color: rgb(47, 47, 47) ;
+}
+
+.form-control:focus{
+  outline:0;
+  background-color: white;
+}
+.botones{
+  width: 50%;
+  
+}
+.movie:hover .overlay{
+  opacity: 1;
+}
+.overlay{
+position: absolute;
+background-color: rgba(0,0,0,0.8);
+width: 86.5%;
+transition: 0.5s ease;
+opacity: 0;
+bottom: 0;
+font-size: 15px;
+padding: 20px;
+text-align: center;
+color:white
+
+}
+.material-icons{
+  font-size: 15px;
+  margin-left: 1rem;
+  color:red;
+}
+.container-singleMovie{
+ 
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  }
+  .modal-content{
+    padding: 1rem;
+    border-radius: 15px;
+    border:1px solid #999;
+    box-shadow: 0 8px 6px -6px black;
+    display: flex;
+    width: 50%; /* Could be more or less, depending on screen size */
+    height: 80%;
+    text-align: center;
+    }
+     .poster{
+       width: 50%;
+     }
+     .info{
+       margin-top: 4rem;
+       width: 50%;
+      justify-content: center;
+      margin-left: 1.5rem;
+      .header{
+        width: 100%;
+        display: flex;
+        .movie-title{
+            text-align:start ;
+              margin:auto;
+              width: 70%;
+              font-size: 35px
+            };
+        .movie-rating{
+                  margin:auto;
+                  color:goldenrod;
+                  font-size: 25px;
+                  border: 1px solid goldenrod;
+                  border-radius: 50%;
+                  padding: 6px
+                };
+      };
+      .data{
+        margin-top: 2rem;
+        margin-left: 0.5rem;
+        width: 95%;
+        display: flex;
+        .genre{
+              font-size: 10px;
+              margin: auto;
+              border: 1px solid rgb(19, 15, 15) ;  
+              border-radius: 6px;
+              padding: 3px
+            }
+            .runtime{
+              font-size: 10px;
+              margin: auto;
+              border: 1px solid rgb(19, 15, 15) ;  
+              border-radius: 6px;
+              padding: 3px
+            }
+            .rated{
+              font-size: 10px;
+              margin: auto;
+              border: 1px solid rgb(19, 15, 15) ;  
+              border-radius: 6px;
+              padding: 3px
+            }
+  
+      }
+      .plot{
+        margin-top: 2rem;
+        justify-content: center;
+        width: 95%;
+        text-align: center;
+        
+      }
+    
+      
+     }
+
+
+
+@media  screen and (max-width:1090px){
+  .line{
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin: 5px;
+
+  }
+  nav{
+    position: relative;
+    z-index: 2;
+    margin-bottom: 10vh;
+  }
+ 
+  .hamburger{
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 2;
+
+  }
+
+.form-control{
+  display: flex;
+  margin-left: 2rem;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid rgb(19, 15, 15) ;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  
+}
+.nav-links{
+  // position: left;
+  // background: #2386c8;
+  // flex-direction: column;
+  // width: 100%;
+  // transition: all 1s ease-out;
+  flex-direction: column;
+  z-index: 1;
+  background-color: #2386c8;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.nav-links a{
+  position: left;
+  // background: #2386c8;
+  // flex-direction: column;
+  
+  // width: 100%;
+  // transition: all 1s ease-out;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  transition: 0.3s;
+  height: 100%;
+}
+
+.open{
+  // clip-path: circle(1100px at 90% -10%);
+  // -webkit-clip-path:circle(1100px at 90% -10%);
+  width: 100%;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+.close{
+  // clip-path: circle(100px at 90% -10%);
+  // -webkit-clip-path:circle(100px at 90% -10%);
+width: 0px;
+display: none;
+transition: 0.3s;
+}
+
+
+.login {
+  width: 27em;
+  height: 38em;
+  //min-height: 44em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  position: relative;
+  z-index: 0;
+  .container {
+    margin-top: -1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.2);
+    border-radius: 4px;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    padding: 17px 10px;
+    //transition: transform 200ms ease-in-out;
+  }
+}
+.container-singleMovie{
+text-align: center;
+}
+.modal-content{
+  margin:auto;
+  display: block;
+  width: 100%; /* Could be more or less, depending on screen size */
+  height: 100%;
+  margin-top: -4rem;
+ 
+
+  }
+   .poster{
+     padding-bottom: 1rem;
+   }
+   .info{
+    margin-bottom: 7rem;
+    .header{
+      width: 100%;
+      display: flex;
+      .movie-title{
+          text-align:start ;
+            margin:auto;
+            width: 70%;
+            font-size: 25px
+          };
+      .movie-rating{
+                margin:auto;
+                color:goldenrod;
+                font-size: 15px;
+                border: 1px solid goldenrod;
+                border-radius: 50%;
+                padding: 6px
+              };
+    };
+    .data{
+      margin-top: 1.5rem;
+      margin-left: 0.5rem;
+      width: 95%;
+      display: flex;
+      .genre{
+            font-size: 15px;
+            margin: auto;
+            border: 1px solid rgb(19, 15, 15) ;  
+            border-radius: 6px;
+            padding: 3px
+          }
+          .runtime{
+            font-size: 15px;
+            margin: auto;
+            border: 1px solid rgb(19, 15, 15) ;  
+            border-radius: 6px;
+            padding: 3px
+          }
+          .rated{
+            font-size: 15px;
+            margin: auto;
+            border: 1px solid rgb(19, 15, 15) ;  
+            border-radius: 6px;
+            padding: 3px
+          }
+
+    }
+    .plot{
+      justify-content: center;
+      width: 95%;
+      text-align: center;
+    }
+  
+    
+   }
+
+
+}
+
+
+
+// .modal {
+//   display: flex; /* Hidden by default */
+//   position: fixed; /* Stay in place */
+//   z-index: 1; /* Sit on top */
+//   left: 0;
+//   top: 0;
+//   width: 100%; /* Full width */
+//   height: 100%; /* Full height */
+//   background-color: rgb(0,0,0); /* Fallback color */
+//   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+// }
+// .close-window{
+//   display: none;
+// }
+
+
+// /* Modal Content/Box */
+// .modal-content {
+//   display:flex;
+//   background-color: #fefefe;
+//   margin:3.5rem auto; /* 15% from the top and centered */
+//   padding: 20px;
+//   border: 1px solid #888;
+//   width: 50%; /* Could be more or less, depending on screen size */
+// }
+// .poster{
+  
+//   flex-basis: 100%;
+//   margin: 5px;
+// }
+// .info{
+ 
+//   flex-basis: 100%;
+//   margin: 5px;
+// }
+// .header{
+// width: 100%;
+// display: flex;
+//   .movie-title{
+//     margin:auto;
+//     font-size: 40px
+//   };
+//   .movie-rating{
+//     margin:auto;
+//     color:goldenrod;
+//     font-size: 20px;
+//     border: 1px solid goldenrod;
+//     border-radius: 50%;
+//     padding: 6px
+//   };
+// }
+// .data{
+//   width: 100%;
+//   display: flex;
+//   margin-top: 2rem;
+//   margin-bottom: 2rem;
+//   .genre{
+//     font-size: 10px;
+//     margin: auto;
+//     border: 1px solid rgb(19, 15, 15) ;  
+//     border-radius: 6px;
+//     padding: 3px
+
+
+
+//   }
+//   .runtime{
+//     font-size: 10px;
+//     margin: auto;
+//     border: 1px solid rgb(19, 15, 15) ;  
+//     border-radius: 6px;
+//     padding: 3px
+//   }
+//   .rated{
+//     font-size: 10px;
+//     margin: auto;
+//     border: 1px solid rgb(19, 15, 15) ;  
+//     border-radius: 6px;
+//     padding: 3px
+//   }
+// }
+// .plot{
+  
+//   width:100%;
+//   margin:auto;
+// }
+
+// /* The Close Button */
+// .close-button {
+//   color: #aaa;
+//   font-size: 20px;
+//   float: right;
+//   font-weight: bold;
+//   cursor: pointer;
+//   transition: transform 0.3s;
+
+// }

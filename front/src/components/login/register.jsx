@@ -1,4 +1,3 @@
-import react from 'react'
 import loginImg from '../../login.svg'
 import "./style.scss"
 

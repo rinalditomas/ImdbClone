@@ -13,7 +13,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', routes)
 
-//http://localhost:5000/api
 
 const  PORT = process.env.PORT || 5000;
 
